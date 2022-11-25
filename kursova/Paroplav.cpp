@@ -64,7 +64,7 @@ float Paroplav::getTonnage()
 // OTHER
 int Paroplav::isOverloaded()
 {
-	if (tonnage * 1000 < passengerCount * AVG_PASSENGER_WEIGHT_KG) return 1;
+	if (tonnage * 1000 < passengerCount * AVG_PASSENGER_WEIGHT_KG) return 1; // Маса тонажу конвертована у кілограми
 
 	return 0;
 };
