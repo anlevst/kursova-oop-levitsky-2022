@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <fstream>
 #include <string> // std::string, std::stoi
 #include <vector> 
@@ -7,33 +7,33 @@
 
 int main()
 {
-    // Відкриття вхідного файлу для зчитування
+    // Р’С–РґРєСЂРёС‚С‚СЏ РІС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ РґР»СЏ Р·С‡РёС‚СѓРІР°РЅРЅСЏ
     std::string fipath = "in.txt";
     std::ifstream finput(fipath);
 
-    std::string tmp; // Тимчасовий рядок для операції getline
+    std::string tmp; // РўРёРјС‡Р°СЃРѕРІРёР№ СЂСЏРґРѕРє РґР»СЏ РѕРїРµСЂР°С†С–С— getline
 
-    int sizeArr = 0; // Кількість рядків у файлі, та, водночас, розмір масиву об'єктів Paroplav
-    while (std::getline(finput, tmp)) // Доки можемо зчитувати з файлу рядки
+    int sizeArr = 0; // РљС–Р»СЊРєС–СЃС‚СЊ СЂСЏРґРєС–РІ Сѓ С„Р°Р№Р»С–, С‚Р°, РІРѕРґРЅРѕС‡Р°СЃ, СЂРѕР·РјС–СЂ РјР°СЃРёРІСѓ РѕР±'С”РєС‚С–РІ Paroplav
+    while (std::getline(finput, tmp)) // Р”РѕРєРё РјРѕР¶РµРјРѕ Р·С‡РёС‚СѓРІР°С‚Рё Р· С„Р°Р№Р»Сѓ СЂСЏРґРєРё
     {
         sizeArr++;
     }
-    // Встановлюємо курсор у файлі на початок файлу
+    // Р’СЃС‚Р°РЅРѕРІР»СЋС”РјРѕ РєСѓСЂСЃРѕСЂ Сѓ С„Р°Р№Р»С– РЅР° РїРѕС‡Р°С‚РѕРє С„Р°Р№Р»Сѓ
     finput.clear();
     finput.seekg(0);
 
-    // Масив об'єктів Paroplav
+    // РњР°СЃРёРІ РѕР±'С”РєС‚С–РІ Paroplav
     Paroplav* paroplavArr = new Paroplav[sizeArr];
 
     std::cout << "Current tours:\nDestination\tPassengers\tCompany \tTonnage\n";
-    std::string token; // Поточне слово/число, яке було зчитано з файлу
+    std::string token; // РџРѕС‚РѕС‡РЅРµ СЃР»РѕРІРѕ/С‡РёСЃР»Рѕ, СЏРєРµ Р±СѓР»Рѕ Р·С‡РёС‚Р°РЅРѕ Р· С„Р°Р№Р»Сѓ
     for (int i = 0; i < sizeArr; i++)
     {
         std::getline(finput, token, ' ');
         paroplavArr[i].setDestination(token);
 
         std::getline(finput, token, ' ');
-        paroplavArr[i].setPassengerCount(std::stoi(token)); // stoi - функція, яка перетворює string на int
+        paroplavArr[i].setPassengerCount(std::stoi(token)); // stoi - С„СѓРЅРєС†С–СЏ, СЏРєР° РїРµСЂРµС‚РІРѕСЂСЋС” string РЅР° int
 
         std::getline(finput, token, ' ');
         paroplavArr[i].setCompany(token);
@@ -41,7 +41,7 @@ int main()
         std::getline(finput, token, '\n');
         paroplavArr[i].setTonnage(std::stof(token));
 
-        // Стилізована таблиця для виводу у консоль
+        // РЎС‚РёР»С–Р·РѕРІР°РЅР° С‚Р°Р±Р»РёС†СЏ РґР»СЏ РІРёРІРѕРґСѓ Сѓ РєРѕРЅСЃРѕР»СЊ
         std::cout << std::left << std::setw(16) << paroplavArr[i].getDestination() <<
             std::left << std::setw(16) << paroplavArr[i].getPassengerCount() <<
             std::left << std::setw(16) << paroplavArr[i].getCompany() <<
@@ -51,22 +51,22 @@ int main()
 
     finput.close();
 
-    // Відкриття вихідного файлу для запису
+    // Р’С–РґРєСЂРёС‚С‚СЏ РІРёС…С–РґРЅРѕРіРѕ С„Р°Р№Р»Сѓ РґР»СЏ Р·Р°РїРёСЃСѓ
     std::string fopath = "out.txt";
     std::ofstream foutput(fopath);
 
-    // Вектор (покращенна версія динамічного масиву) об'єктів Paroplav для перевантажених пароплавів
+    // Р’РµРєС‚РѕСЂ (РїРѕРєСЂР°С‰РµРЅРЅР° РІРµСЂСЃС–СЏ РґРёРЅР°РјС–С‡РЅРѕРіРѕ РјР°СЃРёРІСѓ) РѕР±'С”РєС‚С–РІ Paroplav РґР»СЏ РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРёС… РїР°СЂРѕРїР»Р°РІС–РІ
     std::vector<Paroplav> deniedTours;
 
     for (int i = 0; i < sizeArr; i++)
     {
-        if (paroplavArr[i].isOverloaded()) // Якщо пароплав перевантажений
+        if (paroplavArr[i].isOverloaded()) // РЇРєС‰Рѕ РїР°СЂРѕРїР»Р°РІ РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРёР№
         {
             deniedTours.push_back(paroplavArr[i]);
         }
     }
 
-    // Bubble Sort для сортування за алфавітом
+    // Bubble Sort РґР»СЏ СЃРѕСЂС‚СѓРІР°РЅРЅСЏ Р·Р° Р°Р»С„Р°РІС–С‚РѕРј
     for (int i = 0; i < deniedTours.size(); i++)
     {
         for (int j = i; j < deniedTours.size(); j++)
@@ -81,7 +81,7 @@ int main()
         }
     }
 
-    // Вивід у консоль всіх перевезень які скасовані через перевантаження
+    // Р’РёРІС–Рґ Сѓ РєРѕРЅСЃРѕР»СЊ РІСЃС–С… РїРµСЂРµРІРµР·РµРЅСЊ СЏРєС– СЃРєР°СЃРѕРІР°РЅС– С‡РµСЂРµР· РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРЅСЏ
     std::cout << "\nTours that are denied:\n";
     for (int i = 0; i < deniedTours.size(); i++)
     {

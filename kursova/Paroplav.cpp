@@ -1,4 +1,4 @@
-#include "Paroplav.h"
+ï»¿#include "Paroplav.h"
 
 #define AVG_PASSENGER_WEIGHT_KG 70
 
@@ -64,7 +64,7 @@ float Paroplav::getTonnage()
 // OTHER
 int Paroplav::isOverloaded()
 {
-	if (tonnage * 1000 < passengerCount * AVG_PASSENGER_WEIGHT_KG) return 1; // Ìàñà òîíàæó êîíâåðòîâàíà ó ê³ëîãðàìè
+	if (tonnage * 1000 < passengerCount * AVG_PASSENGER_WEIGHT_KG) return 1; // ÐœÐ°ÑÐ° Ñ‚Ð¾Ð½Ð°Ð¶Ñƒ ÐºÐ¾Ð½Ð²ÐµÑ€Ñ‚Ð¾Ð²Ð°Ð½Ð° Ñƒ ÐºÑ–Ð»Ð¾Ð³Ñ€Ð°Ð¼Ð¸
 
 	return 0;
 };
