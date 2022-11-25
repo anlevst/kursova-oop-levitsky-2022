@@ -1,32 +1,32 @@
-#pragma once
+п»ї#pragma once
 
 #include <string>
 
 class Paroplav
 {
 private:
-	std::string destination; // Hазва пункту призначення
-	int passengerCount; // Kількість пасажирів
-	std::string company; // Hазва компанії
-	float tonnage; // Tоннажність
+	std::string destination; // HР°Р·РІР° РїСѓРЅРєС‚Сѓ РїСЂРёР·РЅР°С‡РµРЅРЅСЏ
+	int passengerCount; // KС–Р»СЊРєС–СЃС‚СЊ РїР°СЃР°Р¶РёСЂС–РІ
+	std::string company; // HР°Р·РІР° РєРѕРјРїР°РЅС–С—
+	float tonnage; // TРѕРЅРЅР°Р¶РЅС–СЃС‚СЊ
 public:
 	// CONSTRUCTORS
 	Paroplav();
 	Paroplav(std::string destination, int passengerCount, std::string company, float tonnage);
 
 	// SETTERS
-	void setDestination(std::string destination); // Встановлює назву пункту призначення
-	void setPassengerCount(int passengerCount); // Встановлює кількість пасажирів
-	void setCompany(std::string company); // Встановлює назву компанії
-	void setTonnage(float tonnage); // Встановлює тоннажність
+	void setDestination(std::string destination); // Р’СЃС‚Р°РЅРѕРІР»СЋС” РЅР°Р·РІСѓ РїСѓРЅРєС‚Сѓ РїСЂРёР·РЅР°С‡РµРЅРЅСЏ
+	void setPassengerCount(int passengerCount); // Р’СЃС‚Р°РЅРѕРІР»СЋС” РєС–Р»СЊРєС–СЃС‚СЊ РїР°СЃР°Р¶РёСЂС–РІ
+	void setCompany(std::string company); // Р’СЃС‚Р°РЅРѕРІР»СЋС” РЅР°Р·РІСѓ РєРѕРјРїР°РЅС–С—
+	void setTonnage(float tonnage); // Р’СЃС‚Р°РЅРѕРІР»СЋС” С‚РѕРЅРЅР°Р¶РЅС–СЃС‚СЊ
 
 	// GETTERS
-	std::string getDestination(); // Повертає назву пункту призначення
-	int getPassengerCount(); // Повертає кількість пасажирів
-	std::string getCompany(); // Повертає назву компанії
-	float getTonnage(); // Повертає тоннажність
+	std::string getDestination(); // РџРѕРІРµСЂС‚Р°С” РЅР°Р·РІСѓ РїСѓРЅРєС‚Сѓ РїСЂРёР·РЅР°С‡РµРЅРЅСЏ
+	int getPassengerCount(); // РџРѕРІРµСЂС‚Р°С” РєС–Р»СЊРєС–СЃС‚СЊ РїР°СЃР°Р¶РёСЂС–РІ
+	std::string getCompany(); // РџРѕРІРµСЂС‚Р°С” РЅР°Р·РІСѓ РєРѕРјРїР°РЅС–С—
+	float getTonnage(); // РџРѕРІРµСЂС‚Р°С” С‚РѕРЅРЅР°Р¶РЅС–СЃС‚СЊ
 
 	// OTHER
-	int isOverloaded(); // Повертає 1, якщо пароплав перевантажений, 0 в інших випадках
+	int isOverloaded(); // РџРѕРІРµСЂС‚Р°С” 1, СЏРєС‰Рѕ РїР°СЂРѕРїР»Р°РІ РїРµСЂРµРІР°РЅС‚Р°Р¶РµРЅРёР№, 0 РІ С–РЅС€РёС… РІРёРїР°РґРєР°С…
 };
 
